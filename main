@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ $1 == '-h' ]] || [[ $1 == '--help' ]] ; then
+  echo "Usage: main [-h|--help] [-v|--debug] [-i|--inline] path-to-file-or-text"
+  echo ""
+  echo "Options:"
+  echo "-v, --verbose  -- Verbose output, explain each step and provide sample output of each operation for debugging purposes"
+  echo "-h, --help     -- Print this help message"
+  echo "-i, --inline   -- Treat the input to the command as the text to process rather then the file to check"
+else
+  node dist/index.js $@
+fi
