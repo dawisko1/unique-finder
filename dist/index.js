@@ -44,7 +44,7 @@ function getFirstUniqueCharIndex(text) {
 if (process.argv.includes('--debug') || process.argv.includes('-v')) {
     _debugToggle = true;
 }
-if (process.argv.length >= 4) {
+if (process.argv.length >= 3 && process.argv.slice(2).filter((arg) => !arg.startsWith('-')).length > 0) {
     // Read the input from the console
     const input = process.argv
         .slice(2)

@@ -11,9 +11,9 @@ To achieve that we can use a **Set**:
 const uniqueChars = [...new Set(text.split(''))]
 ```
 
-Since a **Set** in javascript does not contain duplicated we immediately get only the unique characters
-in the string limiting the loop to max of 25 iterations (ASCII letters). 
-We can optimize it further with using ```Array.prototype.some``` method instead of a methods such as ```Array.prototype.forEach```.
+Since a **Set** in javascript does not contain duplicated entries (it's implemented as a hashmap) we immediately get only the unique characters
+in the string limiting the loop to a max of 26 iterations (ASCII letters). 
+We can optimize it further with using ```Array.prototype.some``` method instead of ```Array.prototype.forEach```.
 By using ```Array.prototype.some``` we can bail out once we find the first occurrence improving the best-case scenario down to **O(1)** time.
 
 The actual checking and looking for the index can be as simple as comparing the results of 
