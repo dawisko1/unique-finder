@@ -44,7 +44,7 @@ function getFirstUniqueCharIndex(text) {
 if (process.argv.includes('--debug') || process.argv.includes('-v')) {
     _debugToggle = true;
 }
-if (process.argv.length >= 3) {
+if (process.argv.length >= 4) {
     // Read the input from the console
     const input = process.argv
         .slice(2)
@@ -64,11 +64,14 @@ else {
     if (process.argv.includes('-i') || process.argv.includes('--inline')) {
         prompter.question('Provide text to process: ', (response) => {
             console.log('Output: ' + getFirstUniqueCharIndex(response).toString());
+            // Exit the process since readline will not allow the process to exit once it executes the above line of code
+            process.exit(0);
         });
     }
     else {
         prompter.question('Provide full path to the file with data: ', (response) => {
             console.log('Output: ' + getFirstUniqueCharIndex(checkAndReadFile(response)).toString());
+            process.exit(0);
         });
     }
 }
